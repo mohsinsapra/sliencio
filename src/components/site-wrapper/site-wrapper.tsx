@@ -1,7 +1,5 @@
 import classNames from 'classnames';
 import styles from './site-wrapper.module.scss';
-import { Header } from '../header/header';
-import { Footer } from '../site-footer/site-footer';
 
 export interface SiteWrapperProps {
     className?: string;
@@ -15,9 +13,7 @@ export interface SiteWrapperProps {
 export const SiteWrapper = ({ className, children }: SiteWrapperProps) => {
     return (
         <div className={classNames(styles.root, className)}>
-            <Header />
             <div className={styles.content}>{children}</div>
-            <Footer />
         </div>
     );
 };

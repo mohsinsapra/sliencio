@@ -1,0 +1,55 @@
+.root {
+    width: 100vw;
+    height: 100vh;
+    border: 0px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.div1 {
+    height: 80%;
+    border: 1px solid black;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    width: 30%;
+    padding: 8px;
+}
+.div2 {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.p1 {
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    font-size: 9px;
+}
+.p2 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    font-size: 9px;
+}
+.div3 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.vertical-right {
+    writing-mode: vertical-rl; /* or use vertical-lr */
+    text-orientation: mixed; /* upright letters */
+    textorientation: 'upright';
+    font-size: 9px;
+}
+.div4 {
+    display: flex;
+}
+.vertical-left {
+    writing-mode: vertical-lr; /* or use vertical-lr */
+    text-orientation: mixed; /* upright letters */
+    textorientation: 'upleft';
+    font-size: 9px;
+}

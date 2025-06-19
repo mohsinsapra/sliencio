@@ -1,0 +1,139 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    border: 0px solid black;
+    border-radius: 50px;
+    gap: 50px;
+    height: 100vh;
+}
+.div1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 30px;
+}
+.header1 {
+    text-align: justify;
+    padding: 20px;
+}
+.header2 {
+    font-size: 14px;
+}
+.header3 {
+    font-size: 14px;
+}
+.header4 {
+    font-size: 18px;
+}
+.header5 {
+    font-size: 14px;
+    text-align: center;
+}
+.header6 {
+    text-align: center;
+    font-size: 6rem;
+    line-height: 100px;
+}
+.div2 {
+    width: 200px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    line-height: 14px;
+    flex-direction: row;
+}
+.img1 {
+    height: 30px;
+}
+.p1 {
+    line-height: 16px;
+    font-size: 12px;
+}
+.span1 {
+    font-size: 14px;
+    line-height: 14px;
+}
+.div3 {
+    display: flex;
+    justify-content: end;
+}
+.img2 {
+    height: 20px;
+}
+.div4 {
+    display: flex;
+    gap: 5px;
+}
+.p2 {
+    font-size: 12px;
+    text-align: justify;
+}
+.p3 {
+    font-size: 12px;
+    text-align: justify;
+}
+.p4 {
+    font-size: 12px;
+}
+.div5 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+.div6 {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.no {
+    font-size: 12px;
+}
+.div7 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.div8 {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    border: 1px solid #000000;
+    border-radius: 100px;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.img3 {
+    flex-grow: 1;
+    width: 100px;
+}
+.img4 {
+    flex-grow: 1;
+    width: 100px;
+}
+.img5 {
+    width: 100px;
+    flex-grow: 1;
+}
+.img6 {
+    flex-grow: 1;
+    width: 100px;
+}
+.div9 {
+    border: 1px solid #ffffff;
+    border-radius: 50px;
+    padding: 2px;
+    width: 50vw;
+}
+.div10 {
+    display: flex;
+    gap: 50px;
+}

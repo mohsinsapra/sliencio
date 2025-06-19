@@ -5,14 +5,19 @@
     flex-direction: column;
     row-gap: 0.5em;
     background-color: var(--snow-white);
-    padding-top: 2em;
-    padding-bottom: 2em;
+    overflow-x: hidden;
+    background:  radial-gradient(circle,rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 37%, rgba(247, 245, 245, 1) 57%, rgba(240, 235, 235, 1) 100%)
 }
 
 .title {
     font: var(--heading1);
     text-align: center;
     letter-spacing: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
 
     @media only screen and (max-width: general.$mobile-width) {
         font-size: 3rem;

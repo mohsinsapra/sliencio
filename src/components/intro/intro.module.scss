@@ -1,0 +1,47 @@
+.root {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: 0px;
+    padding: 50px 0px;
+
+
+}
+.header1 {
+        z-index: 1000 ;
+}
+.header2 {
+    text-align: center;
+    line-height: 15px;
+    font-weight: 500;
+}
+.header3 {
+    margin-bottom: 20px;
+    font-size: 84px;
+}
+.header4 {
+    font-size: 72px;
+}
+.div1 {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+        z-index: 1000 ;
+}
+.header5 {
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+.header6 {
+    font-size: 14px;
+    font-weight: 500;
+        z-index: 1000 ;
+}
+.header7 {
+    font-size: 14px;
+    font-weight: 500;
+}
+

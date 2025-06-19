@@ -3,6 +3,18 @@ import styles from './_index.module.scss';
 import { LinksFunction, LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
 import commonStyles from '~/styles/common-styles.module.scss';
 import { getUrlOriginWithPath } from '~/utils';
+import { Intro } from '../../../src/components/intro/intro';
+import { Caution } from '../../../src/components/caution/caution';
+import { BoldThinking } from '../../../src/components/bold-thinking/bold-thinking';
+import { Product } from '../../../src/components/product/product';
+import { Asthetics } from '../../../src/components/asthetics/asthetics';
+import { Projects } from '../../../src/components/projects/projects';
+import { Stories } from '../../../src/components/stories/stories';
+import { Brands } from '../../../src/components/brands/brands';
+import { ThankYou } from '../../../src/components/thank-you/thank-you';
+import { ModelCanvas } from '../../../src/components/model-canvas/model-canvas';
+import introStyles from '../../../src/components/intro/intro.module.scss';
+import styles0 from './route.module.scss';
 
 export const loader = ({ request }: LoaderFunctionArgs) => {
     return { canonicalUrl: getUrlOriginWithPath(request.url) };
@@ -11,23 +23,19 @@ export const loader = ({ request }: LoaderFunctionArgs) => {
 export default function HomePage() {
     return (
         <div className={styles.root}>
-            <div className={styles.title}>I'M A TITLE</div>
-            <div className={styles.paragraph}>
-                <div className={styles.text}>
-                    I’m a paragraph. Add your own text and edit me on properties panel on the right.
-                    It’s easy. Just select me and make changes to the font on the styles panel on
-                    the right. I’m a great place for you to tell a story and let your viewers know a
-                    little more about you.
-                </div>
-            </div>
-            <button className={classNames(commonStyles.primaryButton, styles.button)}>
-                Learn more
-            </button>
-            <img
-                src="https://images.unsplash.com/photo-1622542796254-5b9c46ab0d2f?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dwixplosives.github.io/codux-assets-storage/add-panel/image-placeholder.jpg"
-                alt=""
-                className={styles.image}
-            />
+            <ModelCanvas />
+            <Intro className={`${styles0['intro-section']} intro-section`} />
+            <Caution />
+            <BoldThinking />
+            <Product />
+            <Asthetics />
+            <Product />
+            <Projects />
+            <Product />
+            <Stories />
+            <Product />
+            <Brands />
+            <ThankYou />
         </div>
     );
 }
