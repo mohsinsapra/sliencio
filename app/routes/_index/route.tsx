@@ -15,27 +15,58 @@ import { ThankYou } from '../../../src/components/thank-you/thank-you';
 import { ModelCanvas } from '../../../src/components/model-canvas/model-canvas';
 import introStyles from '../../../src/components/intro/intro.module.scss';
 import styles0 from './route.module.scss';
+import { useGSAP } from '@gsap/react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useSceneStore } from '~/store/useSceneStore';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
 
+// Layers
+// Canvas = 0
+// Top layer = 1000
+// Bottom layer = -1000
 export const loader = ({ request }: LoaderFunctionArgs) => {
     return { canonicalUrl: getUrlOriginWithPath(request.url) };
 };
 
+gsap.registerPlugin(useGSAP,ScrollSmoother, ScrollTrigger );
 export default function HomePage() {
+    useGSAP(() => {
+ let smoother = ScrollSmoother.create({
+ wrapper: '#smooth-wrapper' ,
+content: '#smooth-content',
+smooth: 1,
+smoothTouch: 0.1,
+effects: true,
+})
+    });
     return (
-        <div className={styles.root}>
-            <ModelCanvas />
-            <Intro className={`${styles0['intro-section']} intro-section`} />
-            <Caution />
-            <BoldThinking />
-            <Product />
-            <Asthetics />
-            <Product />
-            <Projects />
-            <Product />
-            <Stories />
-            <Product />
-            <Brands />
-            <ThankYou />
+        <div className={`${styles.root}`} id="smooth-wrapper"> 
+        {/* Remove this to make z index work */}
+            <ModelCanvas className={classNames('model-canvas', styles0.modelCanvas)} />
+
+{/* <div id="smooth-wrapper">
+  <div id="smooth-content"> */}
+            <div className="body" id="smooth-content">
+
+                <Intro className={styles0['intro-section']} />
+                <Caution />
+                <BoldThinking />
+
+                <Product className={'product1-section'} />
+      
+                <Asthetics />
+
+                <Product className={'product2-section'} />
+                <Projects />
+                <Product />
+                <Stories />
+                <Product />
+                <Brands />
+                <ThankYou />
+            {/* </div>
+        </div> */}
+            </div>
         </div>
     );
 }

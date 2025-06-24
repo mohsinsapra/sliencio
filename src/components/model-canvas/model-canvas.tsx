@@ -11,6 +11,7 @@ import { SceneLighting } from './scene-lighting';
 import { FloatingRotatingObject } from './floating-objs';
 import { Stats } from '@react-three/drei';
 import  CameraMonitor  from './camera-monitor';
+import { useSceneStore } from '~/store/useSceneStore';
 
 
 
@@ -25,6 +26,37 @@ export interface ModelCanvasProps {
  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522
  */
 export const ModelCanvas = ({ className }: ModelCanvasProps) => {
+
+
+      const boxRef = useSceneStore((state) => state.refs.box);
+      const coneRef = useSceneStore((state) => state.refs.cone);
+
+    useGSAP(() => {
+        if (!boxRef?.current) return;
+        if (!coneRef?.current) return;
+
+        // const tl = gsap.timeline({
+        //     scrollTrigger: {
+        //   trigger: '.product1-section',
+        //   start: 'top top',
+        //   end: 'bottom center',
+        //   pin: true,
+        //   scrub: 0.5,
+        //     },
+        // });
+
+        // tl.to(boxRef.current.rotation, {
+        //     z: -Math.PI * 2,
+        // });
+
+        //       tl.to(boxRef.current.scale, {
+        //     x: 0,
+        //     y: 0,
+        //     z: 0,
+        // },"+=0.5");
+
+    }, [boxRef,coneRef]);
+    
     return <div className={cx(styles.root, className)}>
   <Canvas 
         className="canvas" 

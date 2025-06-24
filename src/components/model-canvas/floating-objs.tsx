@@ -7,6 +7,7 @@ import * as THREE from 'three';
 import { useRef, useEffect } from 'react';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from '@gsap/react';
+import { useSceneStore } from '~/store/useSceneStore';
 
 gsap.registerPlugin(useGSAP,ScrollTrigger);
 
@@ -29,6 +30,8 @@ export const FloatingRotatingObject: React.FC<FloatingRotatingObjectProps> = ({
    staysCentered = false
 }) => {
   const meshRef = useRef<THREE.Mesh>(null);
+  const registerRef = useSceneStore((state) => state.registerRef);
+
 
   // Define the reusable state objects
   const baseRotation = { x: 0, y: 0, z: 0 };
@@ -36,6 +39,10 @@ export const FloatingRotatingObject: React.FC<FloatingRotatingObjectProps> = ({
   const floatOffset = { y: 0, xRot: 0, zRot: 0 };
   const scrollPosition = { y: 0 };
 
+
+    useEffect(() => {
+    registerRef(geometry, meshRef);
+  }, [registerRef,baseRotation, boostRotation, floatOffset]);
 const basePositionY = useRef(0);
 
   function applyCombinedTransform() {
@@ -45,7 +52,7 @@ const basePositionY = useRef(0);
     // Combined rotation: base + scroll boost + floating
     mesh.rotation.x = (baseRotation.x + boostRotation.x + floatOffset.xRot) * rotationMultiplier;
     mesh.rotation.y = (baseRotation.y + boostRotation.y) * rotationMultiplier;
-    mesh.rotation.z = (baseRotation.z + boostRotation.z + floatOffset.zRot) * rotationMultiplier;
+    // mesh.rotation.z = (baseRotation.z + boostRotation.z + floatOffset.zRot) * rotationMultiplier;
 
     // Combined position: base + floating + scroll movement
     mesh.position.y = basePositionY.current + floatOffset.y + scrollPosition.y;
@@ -96,37 +103,32 @@ const basePositionY = useRef(0);
       scrollTrigger: {
         trigger: introEl,
         start: "top top",
-        end: "bottom top",
+        end: "bottom -200%",
         scrub: 1,
         // markers: true,
       },
     });
 
     // Box rotates to 90 degrees on Z-axis
-    tl_trigger.fromTo(boostRotation, {
-      z: staysCentered ? -Math.PI : 0, // -90deg for box
-    }, {
-      z: staysCentered ? 0 : -Math.PI/6, // 0 for box, -30deg for others
-      onUpdate: applyCombinedTransform
-    });
+   
     // Objects move up when scrolling down
 if (!staysCentered) {
   tl_trigger.to(scrollPosition, {
-    y:'3', // Move up 3 units
+    y:'30', // Move up 3 units
     onUpdate: applyCombinedTransform
   },"<"); // Start at the same time as rotation
 
   
 }else{
    tl_trigger.to(scrollPosition, {
-    y:'0.5', // Move up 3 units
+    y:'1.5', // Move up 3 units
     onUpdate: applyCombinedTransform
   },"<"); // Start at the same time as rotation
 
-   tl_trigger.to(scrollPosition, {
-    y:'0.5', // Move up 3 units
-    onUpdate: applyCombinedTransform
-  },"<"); // Start at the same time as rotation
+    tl_trigger.to(meshRef.current.rotation, {
+        z: Math.PI * 2, // Rotate 360 degrees
+
+    },"<"); // Start at the same time as position change
 }
   });
 
