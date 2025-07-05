@@ -4,22 +4,24 @@ import App from 'app/root';
 import HomePage from 'app/routes/_index/route';
 import AboutPage from 'app/routes/about/route';
 
+const BASE = '/sliencio';
+
 const AppWrapper = createRemixStub([
-    {
-        Component: () => {
-            return <App />;
-        },
-        children: [
-            {
-                path: '/',
-                Component: HomePage,
-            },
-            {
-                path: '/about',
-                Component: AboutPage,
-            },
-        ],
+  {
+    Component: () => {
+      return <App />;
     },
+    children: [
+      {
+        path: `${BASE}/`,
+        Component: HomePage,
+      },
+      {
+        path: `${BASE}/about`,
+        Component: AboutPage,
+      },
+    ],
+  },
 ]);
 
 export default createBoard({

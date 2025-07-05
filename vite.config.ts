@@ -9,6 +9,7 @@ export default defineConfig({
         remix({
             ignoredRouteFiles: ['**/*.module.scss'],
             ssr: false,
+            basename: '/sliencio',
         }),
         tsconfigPaths(),
     ],
