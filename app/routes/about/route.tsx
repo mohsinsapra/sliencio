@@ -1,10 +1,5 @@
-import { LinksFunction, LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
-import { getUrlOriginWithPath } from '~/utils';
+import { LinksFunction, MetaFunction } from '@remix-run/node';
 import styles from './about.module.scss';
-
-export const loader = ({ request }: LoaderFunctionArgs) => {
-    return { canonicalUrl: getUrlOriginWithPath(request.url) };
-};
 
 export default function AboutPage() {
     return (
@@ -27,7 +22,7 @@ export default function AboutPage() {
     );
 }
 
-export const meta: MetaFunction<typeof loader> = ({ data }) => {
+export const meta: MetaFunction = () => {
     const title = 'Website Starter - About Page';
     const description = 'Welcome to the Website Starter About Page';
     const imageUrl = 'https://website-starter.com/og-image.png';
@@ -37,11 +32,6 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
         {
             name: 'description',
             content: description,
-        },
-        {
-            tagName: 'link',
-            rel: 'canonical',
-            href: data?.canonicalUrl,
         },
         {
             property: 'robots',

@@ -1,8 +1,7 @@
 import classNames from 'classnames';
 import styles from './_index.module.scss';
-import { LinksFunction, LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
+import { LinksFunction, MetaFunction } from '@remix-run/node';
 import commonStyles from '~/styles/common-styles.module.scss';
-import { getUrlOriginWithPath } from '~/utils';
 import { Intro } from '../../../src/components/intro/intro';
 import { Caution } from '../../../src/components/caution/caution';
 import { BoldThinking } from '../../../src/components/bold-thinking/bold-thinking';
@@ -25,9 +24,6 @@ import { ScrollSmoother } from 'gsap/ScrollSmoother';
 // Canvas = 0
 // Top layer = 1000
 // Bottom layer = -1000
-export const loader = ({ request }: LoaderFunctionArgs) => {
-    return { canonicalUrl: getUrlOriginWithPath(request.url) };
-};
 
 gsap.registerPlugin(useGSAP,ScrollSmoother, ScrollTrigger );
 export default function HomePage() {
@@ -71,7 +67,7 @@ effects: true,
     );
 }
 
-export const meta: MetaFunction<typeof loader> = ({ data }) => {
+export const meta: MetaFunction = () => {
     const title = 'Website Starter';
     const description = 'Welcome to the Website Starter';
     const imageUrl = 'https://website-starter.com/og-image.png';
@@ -81,11 +77,6 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
         {
             name: 'description',
             content: description,
-        },
-        {
-            tagName: 'link',
-            rel: 'canonical',
-            href: data?.canonicalUrl,
         },
         {
             property: 'robots',
