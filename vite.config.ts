@@ -2,15 +2,15 @@ import { vitePlugin as remix } from '@remix-run/dev';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import path from 'node:path';
-import { netlifyPlugin } from '@netlify/remix-adapter/plugin';
 
 export default defineConfig({
+    base: '/sliencio/',
     plugins: [
         remix({
             ignoredRouteFiles: ['**/*.module.scss'],
+            ssr: false,
         }),
         tsconfigPaths(),
-        netlifyPlugin(),
     ],
     resolve: {
         alias: {
