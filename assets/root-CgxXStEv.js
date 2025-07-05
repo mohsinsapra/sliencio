@@ -1,0 +1,10 @@
+import{r as l,j as e}from"./jsx-runtime-BMrMXMSG.js";import{E as h}from"./error-component-Bj_RphAF.js";import{c as y}from"./index-DQaR9Pkf.js";import{l as j,n as S,o as g,p as w,_,O as k,M as E,L as M,S as N,q as R,t as v}from"./components-C9DzCHc3.js";/**
+ * @remix-run/react v2.16.8
+ *
+ * Copyright (c) Remix Software Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.md file in the root directory of this source tree.
+ *
+ * @license MIT
+ */let c="positions";function L({getKey:t,...s}){let{isSpaMode:o}=j(),r=S(),m=g();w({getKey:t,storageKey:c});let p=l.useMemo(()=>{if(!t)return null;let n=t(r,m);return n!==r.key?n:null},[]);if(o)return null;let x=((n,f)=>{if(!window.history.state||!window.history.state.key){let i=Math.random().toString(32).slice(2);window.history.replaceState({key:i},"")}try{let a=JSON.parse(sessionStorage.getItem(n)||"{}")[f||window.history.state.key];typeof a=="number"&&window.scrollTo(0,a)}catch(i){console.error(i),sessionStorage.removeItem(n)}}).toString();return l.createElement("script",_({},s,{suppressHydrationWarning:!0,dangerouslySetInnerHTML:{__html:`(${x})(${JSON.stringify(c)}, ${JSON.stringify(p)})`}}))}const O="_root_1q7rf_1",$="_content_1q7rf_10",u={root:O,content:$},d=({className:t,children:s})=>e.jsx("div",{className:y(u.root,t),children:e.jsx("div",{className:u.content,children:s})});function C({children:t}){return e.jsxs("html",{lang:"en",children:[e.jsxs("head",{children:[e.jsx("meta",{charSet:"utf-8"}),e.jsx("meta",{name:"viewport",content:"width=device-width, initial-scale=1"}),e.jsx(E,{}),e.jsx(M,{})]}),e.jsxs("body",{children:[t,e.jsx(L,{}),e.jsx(N,{})]})]})}function H(){return e.jsx(d,{children:e.jsx(k,{})})}function W(){const t=R(),{title:s,message:o}=q(t);return e.jsx(d,{children:e.jsx(h,{title:s,message:o})})}function q(t){var r;let s,o;return v(t)?t.status===404?(s="Page Not Found",o="Looks like the page you're trying to visit doesn't exist"):(s=`${t.status} - ${t.statusText}`,o=((r=t.data)==null?void 0:r.message)??""):s="Unknown error ocurred",{title:s,message:o}}export{W as ErrorBoundary,C as Layout,H as default};
