@@ -1,0 +1,1 @@
+import{j as e}from"./jsx-runtime-BMrMXMSG.js";import{E as o}from"./error-component-Bj_RphAF.js";import{v as a}from"./components-C9DzCHc3.js";function c(){const[r]=a(),t=r.get("title"),s=r.get("message");return e.jsx(o,{title:t,message:s})}export{c as default};
